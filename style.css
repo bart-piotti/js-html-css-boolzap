@@ -37,18 +37,11 @@
     height: 100%;
 }
 
-.right {
-    float: right;
-    width: 70%;
-    height: 100%;
-    background-color: blue;
-}
-
 .left > div {
     width: 100%;
 }
 
-.menu_top {
+.menu_top, .chat_menu {
     height: 7.5%;
     background-color: rgb(237,237,237);
     display: flex;
@@ -73,6 +66,7 @@
     margin-left: 30px;
     color: rgba(0, 0, 0, 0.25);
     cursor: pointer;
+    font-size: 22px;
 }
 
 .notifica {
@@ -121,7 +115,7 @@
     border: 0;
 }
 
-.ricerca input:focus {
+input:focus {
     outline: none;
 }
 
@@ -138,6 +132,7 @@
     background-color: white;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     cursor: pointer;
+    position: relative;
 }
 .chat:hover {
     background-color: rgb(235,235,235);
@@ -156,4 +151,112 @@
     font-size: 14px;
     margin-top: 7px;
     color: rgba(0, 0, 0, 0.5);
+}
+
+.chat_info span {
+    position: absolute;
+    right: 26px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.6);
+}
+/* //---------------------------------// */
+
+.right {
+    float: right;
+    width: 70%;
+    height: 100%;
+}
+
+.chat_menu {
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+.chat_menu .nome_foto {
+    height: 70%;
+    cursor: pointer;
+}
+
+.nome_foto img {
+    height: 100%;
+    border-radius: 50%;
+    margin-left: 20px;
+}
+
+.nome_foto p {
+    float: right;
+    line-height: 50px;
+    margin-left: 20px;
+}
+
+.chat_page {
+    height: 85%;
+    background-image: url('img/chat_bg.png');
+    background-size: cover;
+    background-position: bottom;
+}
+
+.chat_page .messaggio {
+    float: right;
+    padding: 5px 15px;
+    padding-right: 55px;
+    margin-right: 60px;
+    background: rgb(220,248,198);
+    border-radius: 15px;
+    clear: both;
+    margin-top: 20px;
+    position: relative;
+}
+
+.chat_page .messaggio.risposta {
+    float: left;
+    background: white;
+    margin-left: 60px;
+}
+
+.messaggio .info {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    display: none;
+    color: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+.messaggio:hover .info {
+    display: block;
+}
+.messaggio:hover p:last-child {
+    display: none;
+}
+
+.messaggio p:last-child {
+    position: absolute;
+    bottom: 2px;
+    right: 10px;
+    font-size: 10px;
+}
+
+.invia_mes {
+    height: 7.5%;
+    display: flex;
+    align-items: center;
+    background-color: rgb(235,235,235);
+    justify-content: space-evenly;
+}
+
+.invia_mes input {
+    width: 80%;
+    border: 0;
+    height: 40px;
+    padding: 0 10px;
+    border-radius: 20px;
+}
+
+.invia_mes i {
+    font-size: 25px;
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
 }
