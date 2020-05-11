@@ -196,6 +196,7 @@ input:focus {
     background-image: url('img/chat_bg.png');
     background-size: cover;
     background-position: bottom;
+    overflow: auto;
 }
 
 .chat_page .messaggio {
@@ -216,6 +217,9 @@ input:focus {
     margin-left: 60px;
 }
 
+.chat_page .messaggio:last-child {
+    margin-bottom: 20px;
+}
 .messaggio .info {
     position: absolute;
     top: 50%;
