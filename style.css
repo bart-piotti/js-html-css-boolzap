@@ -151,6 +151,7 @@ input:focus {
     font-size: 14px;
     margin-top: 7px;
     color: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
 }
 
 .chat_info span {
@@ -161,6 +162,7 @@ input:focus {
     font-size: 13px;
     color: rgba(0, 0, 0, 0.6);
 }
+
 /* //---------------------------------// */
 
 .right {
