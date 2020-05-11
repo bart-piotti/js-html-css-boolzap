@@ -262,3 +262,11 @@ input:focus {
     color: rgba(0, 0, 0, 0.5);
     cursor: pointer;
 }
+
+.fa-paper-plane.invia{
+    display: none;
+}
+
+.template {
+    display: none;
+}

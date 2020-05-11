@@ -1,10 +1,5 @@
-$('.invia').hide()
-$('.invia_mes input').click(function(){
-    $('.fa-microphone').hide()
-    $('.invia').show()
-})
-
 $('.invia').click(function(){
+    console.log('OK');
     //Creo una variabile che contiene il testo dell'input
     var testo_messaggio = $('.invia_mes input').val()
 
@@ -35,5 +30,29 @@ $('.invia_mes input').on('keypress',function(e) {
             //Cancello il contenuto dell'input
             $('.invia_mes input').val('')
         }
+    }
+});
+
+
+var focus;
+$('.invia_mes input').focus(function(){
+    $('.fa-microphone').hide()
+    $('.invia').show()
+    focus = true;
+})
+$('.invia_mes input').blur(function(){
+    focus = false;
+})
+
+$(document).click(function()
+{
+    if(focus != true) {
+          console.log('warning');
+          $('.fa-microphone').show()
+          $('.invia').hide()
+    }
+    else {
+        $('.fa-microphone').hide()
+        $('.invia').show()
     }
 });
