@@ -1,4 +1,10 @@
-$('.fa-microphone').click(function(){
+$('.invia').hide()
+$('.invia_mes input').click(function(){
+    $('.fa-microphone').hide()
+    $('.invia').show()
+})
+
+$('.invia').click(function(){
     //Creo una variabile che contiene il testo dell'input
     var testo_messaggio = $('.invia_mes input').val()
 
@@ -8,6 +14,9 @@ $('.fa-microphone').click(function(){
 
         //Aggiungo il template con relativo messaggio in pagina
         $('.chat_page').append($('.template .messaggio').clone())
+
+        //Cancello il contenuto dell'input
+        $('.invia_mes input').val('')
     }
 })
 
@@ -22,6 +31,9 @@ $('.invia_mes input').on('keypress',function(e) {
 
             //Aggiungo il template con relativo messaggio in pagina
             $('.chat_page').append($('.template .messaggio').clone())
+
+            //Cancello il contenuto dell'input
+            $('.invia_mes input').val('')
         }
     }
 });
