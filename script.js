@@ -1,5 +1,4 @@
 $('.invia').click(function(){
-    console.log('OK');
     //Creo una variabile che contiene il testo dell'input
     var testo_messaggio = $('.invia_mes input').val()
 
@@ -34,6 +33,7 @@ $('.invia_mes input').on('keypress',function(e) {
 });
 
 
+//Creo una variabile che cambia se l'input è on focus o meno
 var focus;
 $('.invia_mes input').focus(function(){
     $('.fa-microphone').hide()
@@ -44,10 +44,10 @@ $('.invia_mes input').blur(function(){
     focus = false;
 })
 
+//Ad ogni click verifica se l'input del messaggio abbia il focus o meno e mostra l'icona adatta
 $(document).click(function()
 {
     if(focus != true) {
-          console.log('warning');
           $('.fa-microphone').show()
           $('.invia').hide()
     }
