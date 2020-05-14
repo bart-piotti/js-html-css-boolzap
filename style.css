@@ -195,11 +195,13 @@ input:focus {
     margin-left: 20px;
 }
 
-.chat_page {
+#chatPages {
     height: calc(100% - 130px);
-    background-image: url('img/chat_bg.png');
-    background-size: cover;
-    background-position: bottom;
+}
+.chat_page {
+    height: 100%;
+    background-image: url('img/wallpaper.jpg');
+    background-size: contain;
     overflow: auto;
     display: none;
 }

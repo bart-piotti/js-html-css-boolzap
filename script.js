@@ -2,6 +2,18 @@ function getRandom(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 
+// ---------------- VISUALIZZA L'ULTIMO MESSAGGIO SOTTO AL CONTATTO ----------------
+function aggiornaUltimo(){
+    $('.chat').each(function(){
+        var data_chat = $(this).attr('data-chat')
+        var ultimo_messaggio = $('.chat_page[data-chat="' + data_chat +'"] .messaggio:last-child p:first-of-type').text()
+        var ora_ultimo_messaggio = $('.chat_page[data-chat="' + data_chat +'"] .messaggio:last-child p:last-of-type').text()
+        $(this).find('.ultimo_messaggio').text(ultimo_messaggio)
+        $(this).find('.ora_ultimo_mess').text(ora_ultimo_messaggio)
+    })
+}
+// ---------------- VISUALIZZA L'ULTIMO MESSAGGIO SOTTO AL CONTATTO ----------------
+
 // ---------------- INVIA MESSAGGIO ----------------
 function inviaMess() {
     //Creo delle variabili per ore e minuti
@@ -24,6 +36,8 @@ function inviaMess() {
 
         //Aggiungo il template con relativo messaggio in pagina
         $('.chat_page.active').append($('.template .messaggio:first-child').clone())
+
+        aggiornaUltimo()
 
         //Cancello il contenuto dell'input
         $('.invia_mes input').val('')
@@ -53,6 +67,7 @@ function inviaRisposta() {
     //Dopo 3 secondi da quando è stata chiamata manda una risposta
     setTimeout(function(){
         $('.chat_page.active').append($('.template .risposta').clone())
+        aggiornaUltimo()
     }, 1000)
 }
 // ---------------- /RISPONDI AD OGNI MESSAGGIO ----------------
@@ -127,7 +142,7 @@ $(document).on('click', '.canc_mess', function(){
 // ---------------- CAMBIA CHAT CON CLICK SU CONTATTO ----------------
 $('.elenco_chat .chat').click(function(){
     //Recuper il data del contatto su chui ho cliccato
-    data_chat = $(this).attr('data-chat')
+    var data_chat = $(this).attr('data-chat')
     console.log(data_chat);
     //Rimuovo la classe active da tutte le chat (le nascondo tutte)
     $('.chat_page').removeClass('active')
