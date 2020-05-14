@@ -2,6 +2,7 @@ function getRandom(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 
+
 // ---------------- VISUALIZZA L'ULTIMO MESSAGGIO SOTTO AL CONTATTO ----------------
 function aggiornaUltimo(){
     $('.chat').each(function(){
@@ -13,6 +14,7 @@ function aggiornaUltimo(){
     })
 }
 // ---------------- VISUALIZZA L'ULTIMO MESSAGGIO SOTTO AL CONTATTO ----------------
+
 
 // ---------------- INVIA MESSAGGIO ----------------
 function inviaMess() {
@@ -42,6 +44,9 @@ function inviaMess() {
         //Cancello il contenuto dell'input
         $('.invia_mes input').val('')
 
+        //Auto scroll-down
+        $('.chat_page').scrollTop($('.chat_page').height());
+
         inviaRisposta()
     }
 }
@@ -68,6 +73,8 @@ function inviaRisposta() {
     setTimeout(function(){
         $('.chat_page.active').append($('.template .risposta').clone())
         aggiornaUltimo()
+        //Auto scroll-down
+        $('.chat_page').scrollTop($('.chat_page').height());
     }, 1000)
 }
 // ---------------- /RISPONDI AD OGNI MESSAGGIO ----------------
