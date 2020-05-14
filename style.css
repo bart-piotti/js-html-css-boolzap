@@ -134,6 +134,10 @@ input:focus {
     cursor: pointer;
     position: relative;
 }
+
+.chat.active {
+    background-color: rgb(235,235,235);
+}
 .chat:hover {
     background-color: rgb(235,235,235);
 }
@@ -197,6 +201,11 @@ input:focus {
     background-size: cover;
     background-position: bottom;
     overflow: auto;
+    display: none;
+}
+
+.chat_page.active {
+    display: block;
 }
 
 .chat_page .messaggio {
@@ -237,12 +246,36 @@ input:focus {
 .messaggio:hover p:last-child {
     display: none;
 }
+.risposta:hover p:last-child {
+    display: block;
+}
 
 .messaggio p:last-child {
     position: absolute;
     bottom: 2px;
     right: 10px;
     font-size: 10px;
+}
+
+.messaggio .opzioni_messaggio {
+    background-color: white;
+    position: absolute;
+    right: 0;
+    top: 30px;
+    width: 200px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, .35);
+    display: none;
+    z-index: 2;
+}
+
+.messaggio .opzioni_messaggio div {
+    padding: 10px;
+}
+
+.messaggio .opzioni_messaggio div:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
 .invia_mes {
