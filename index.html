@@ -7,6 +7,7 @@
         <script src="https://kit.fontawesome.com/ae1fb106e8.js" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     </head>
     <body>
         <div class="green"></div>
@@ -140,23 +141,19 @@
             </section>
         </div>
 
-<!-- /////////////////    TEMPLATES    ///////////////// -->
-        <div class="template">
-            <div class="messaggio">
-                <i class="fas fa-info-circle info"></i>
+<!-- /////////////////    TEMPLATES HANDLEBARS   ///////////////// -->
+        <script id="template_messaggio" type="text/x-handlebars-template">
+            <div class="messaggio  {{classe}}">
+                <i class="fas {{classe_icona}} info"></i>
                 <div class="opzioni_messaggio">
                     <div class="messaggio_info">Info</div>
                     <div class="canc_mess">Cancella messaggio</div>
                 </div>
-                <p></p>
-                <p>16:45</p>
+                <p>{{mess}}</p>
+                <p>{{ora}}</p>
             </div>
-            <div class="messaggio risposta">
-                <p>Ok!</p>
-                <p>17:00</p>
-            </div>
-        </div>
-<!-- /////////////////    TEMPLATES    ///////////////// -->
+        </script>
+<!-- /////////////////    TEMPLATES HANDLEBARS    ///////////////// -->
 
     <script src="script.js" charset="utf-8"></script>
     </body>

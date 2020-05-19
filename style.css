@@ -220,6 +220,8 @@ input:focus {
     clear: both;
     margin-top: 20px;
     position: relative;
+    max-width: 300px;
+    overflow-wrap: break-word;
 }
 
 .chat_page .messaggio.risposta {

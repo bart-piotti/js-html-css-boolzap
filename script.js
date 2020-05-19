@@ -2,6 +2,8 @@ function getRandom(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 
+var source   = document.getElementById("template_messaggio").innerHTML;
+var template = Handlebars.compile(source);
 
 // ---------------- VISUALIZZA L'ULTIMO MESSAGGIO SOTTO AL CONTATTO ----------------
 function aggiornaUltimo(){
@@ -30,14 +32,15 @@ function inviaMess() {
     var testo_messaggio = $('.invia_mes input').val()
 
     if (testo_messaggio.trim() != '') {
-        //Inserisco il testo dell'input dentro al template da visualizzare
-        $('.template .messaggio:first-child p:first-of-type').text(testo_messaggio)
-
-        //Aggiunge l'ora al messaggio
-        $('.template .messaggio:first-child p:last-of-type').text(ora + ':' + minuti)
+        var context = {
+            mess: testo_messaggio,
+            ora: ora + ':' + minuti,
+            classe_icona: 'fa-info-circle'
+        };
+        var html = template(context);
 
         //Aggiungo il template con relativo messaggio in pagina
-        $('.chat_page.active').append($('.template .messaggio:first-child').clone())
+        $('.chat_page.active').append(template(context))
 
         aggiornaUltimo()
 
@@ -66,12 +69,16 @@ $('.invia_mes input').on('keypress',function(e) {
 // ---------------- RISPONDI AD OGNI MESSAGGIO ----------------
 //Funzione per rispondere "Ok"
 function inviaRisposta() {
-    //Aggiunge l'ora al messaggio di risposta, aggiunge lo 0 davanti ai minuti se hanno una sola cifra
-    $('.template .risposta p:last-of-type').text(ora + ':' + minuti)
+    var context = {
+        classe: 'risposta',
+        mess: 'Ok!',
+        ora: ora + ':' + minuti
+    };
+    var html_risp = template(context);
 
     //Dopo 3 secondi da quando è stata chiamata manda una risposta
     setTimeout(function(){
-        $('.chat_page.active').append($('.template .risposta').clone())
+        $('.chat_page.active').append(html_risp)
         aggiornaUltimo()
         //Auto scroll-down
         $('.chat_page').scrollTop($('.chat_page').height());
@@ -150,7 +157,6 @@ $(document).on('click', '.canc_mess', function(){
 $('.elenco_chat .chat').click(function(){
     //Recuper il data del contatto su chui ho cliccato
     var data_chat = $(this).attr('data-chat')
-    console.log(data_chat);
     //Rimuovo la classe active da tutte le chat (le nascondo tutte)
     $('.chat_page').removeClass('active')
     //Aggiungo la classe active alla chat con lo stesso data del contatto su cui ho cliccato
